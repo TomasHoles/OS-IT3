@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zobrazení údajů</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Odeslané údaje</h1>
+    
+    <div id="userData"></div>
+
+    <script>
+        let formData = JSON.parse(localStorage.getItem('formData'));
+
+        if (formData) {
+            document.getElementById('userData').innerHTML = `
+                <p><strong>Jméno:</strong> ${formData.name}</p>
+                <p><strong>Email:</strong> ${formData.email}</p>
+            `;
+        } else {
+            document.getElementById('userData').innerHTML = '<p>Žádné údaje nebyly nalezeny.</p>';
+        }
+    </script>
+</body>
+</html>
